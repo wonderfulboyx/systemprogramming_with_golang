@@ -12,8 +12,8 @@
 - 決まったバッファを使いまわしたいときは `io.CopyBuffer(dst Writer, src Reader, buf []byte) (written int64, err error)`
 
 ## ioインターフェースのキャスト
-- 関数からは`io.ReadCloser`を要求されているが、単体テストではCloseメソッドを持たない構造体を使いたいケース
-    -  `ioutil.NopCloser(r io.Reader) io.ReadCloser` にreaderをわたしてやると何もしないCloseをくっつけて返してくれる
+- 関数からは`io.ReadCloser`を要求されているが、単体テストではCloseメソッドを持たない構造体を使いたいケースがある。
+    -  そういうときは`ioutil.NopCloser(r io.Reader) io.ReadCloser` にreaderをわたしてやると何もしないCloseをくっつけて返してくれる
 - io.Readerとio.Writerをつなげるには `bufio.NewReadWriter(r *Reader, w *Writer) *ReadWriter`
 
 ## その他
