@@ -8,7 +8,7 @@
 - バッファの管理を考えると結構面倒くさいので、便利な補助機能がいくつかある
 - `ioutil.ReadAll(r io.Reader) ([]byte, error)` でだいたいいける。
 - 決まったバイト数だけ確実に読み込みたい場合は `io.ReadFull(r Reader, buf []byte) (n int, err error)`
-- `io.Copy(dst Writer, src Reader) (written int64, err error)` でsrcをdstに流す
+- readerからwriterにコピーしたいときは`io.Copy(dst Writer, src Reader) (written int64, err error)` 。srcをdstに流す。
 - 決まったバッファを使いまわしたいときは `io.CopyBuffer(dst Writer, src Reader, buf []byte) (written int64, err error)`
 
 ## ioインターフェースのキャスト
